@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Inventory</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .header h1 {
+      font-size: 32px;
+      margin: 0;
+      color: #333;
+    }
+
+    .header p {
+      font-size: 16px;
+      margin: 0;
+      color: #999;
+    }
+
+    select {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      appearance: none;
+      background-color: #fff;
+      background-image: url('arrow-down.png');
+      background-position: right 8px top 50%;
+      background-repeat: no-repeat;
+    }
+
+    .data {
+      display: none;
+    }
+
+    .data.selected {
+      display: block;
+    }
+
+    .footer {
+      font-size: 14px;
+      color: #999;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Inventory Reports</h1>
+    </div>
+    <label for="month">Select a month:</label>
+<select id="month">
+  <option value="january">January</option>
+  <option value="february">February</option>
+  <option value="march">March</option>
+  <option value="april">April</option>
+  <option value="may">May</option>
+  <option value="june">June</option>
+  <option value="july">July</option>
+  <option value="august">August</option>
+  <option value="september">September</option>
+  <option value="october">October</option>
+  <option value="november">November</option>
+  <option value="december">December</option>
+</select>
+        <div id="reports"></div>
+        <script>
+            
+            const monthDropdown = document.getElementById('month');
+            const reportsContainer = document.getElementById('reports');
+          
+           
+            const reports = {
+              january: '<p>This is the report for January</p>',
+              february: '<p>This is the report for February</p>',
+              march: '<p>This is the report for March</p>',
+              april: '<p>This is the report for April</p>',
+              may: '<p>This is the report for May</p>',
+              june: '<p>This is the report for June</p>',
+              july: '<p>This is the report for July</p>',
+              august: '<p>This is the report for August</p>',
+              september: '<p>This is the report for September</p>',
+              october: '<p>This is the report for October</p>',
+              november: '<p>This is the report for November</p>',
+              december: '<p>This is the report for December</p>'
+            };
+          
+           
+            monthDropdown.addEventListener('change', function() {
+              const selectedMonth = this.value;
+              reportsContainer.innerHTML = reports[selectedMonth];
+            });
+          </script>
